@@ -1,0 +1,128 @@
+2 Page ->
+Программирование на языке Си может быть очень утомительным, если у вас нет доступа к этим чрезвычайно полезным стандартным функциям. Этот проект дает вам возможность переписать эти функции, понять их и научиться ими пользоваться. Эта библиотека поможет вам во всех ваших будущих проектах на языке Си.Благодаря этому проекту мы также даем вам возможность расширить список функций с помощью ваших собственных. Потратьте время, чтобы расширить свой лифт в течение всего года.
+
+3 Page ->
+Ваш проект должен быть написан в соответствии с нормой. Если у вас есть бонусные файлы / функции, они включены в проверку нормы, и вы получите 0, если внутри есть ошибка нормы.
+•Ваши функции не должны завершаться неожиданно (ошибка сегментации, ошибка шины, двойное освобождение и т. д.), Кроме неопределенного поведения. Если это произойдет, ваш проект будет признан нефункциональным и получит 0 во время оценки.
+•При необходимости все выделенное в куче место памяти должно быть надлежащим образом освобождено. Никакие утечки не будут допущены.
+•Если субъект требует этого, вы должны отправить Makefile, который будет компилировать ваши исходные файлы в требуемый вывод с флагами -Wall,- Wextra и-Werror, и ваш Makefile не должен повторно связываться.
+•Ваш Makefile должен, по крайней мере, содержать правила $(NAME), all, clean, fclean и re.
+•Чтобы включить бонусы в свой проект, вы должны включить правило для вашего Makefile, которое добавит все различные заголовки, librairies или функции, которые запрещены в основной части проекта. Бонусы должны быть в другом файле file_bonus.{з/з}. Обязательная и бонусная часть оценки проводится отдельно.
+•Если ваш проект позволяет вам использовать ваш libft,вы должны скопировать его исходные файлы и связанный с ними Makefile в папку libft с соответствующим Makefile.
+Makefile вашего проекта должен скомпилировать библиотеку, используя ее Makefile, а затем скомпилировать проект.
+•Мы рекомендуем вам создавать тестовые программы для вашего проекта, даже если эта работа не будет представлена и не будет оценена. Это даст вам возможность легко проверить свою работу и работу ваших коллег. Вы найдете эти испытания особенно полезными во время вашей защиты. Действительно, во время защиты вы можете свободно использовать свои тесты и/или тесты оцениваемого вами сверстника.
+* Отправьте свою работу в назначенный вам репозиторий git. Будут проверены только работа в репозиторий Git.
+Если глубокая мысль назначена для оценки вашей работы, то это будет сделано после ваших коллегиальных оценок. Если во время оценки Deepthought произойдет ошибка в каком-либо разделе вашей работы, оценка будет остановлена.
+
+4 List ->
+Program name libft.a
+Turn in files *.c, libft.h, Makefile 
+
+Использование глобальных переменных запрещено.
+• * Если вам нужны подфункции для написания сложной функции, вы должны определить эти подфункции как статические, чтобы избежать их публикации в вашей библиотеке. Было бы хорошей привычкой делать это и в ваших будущих проектах.
+* Отправляйте все файлы в корневой каталог вашего репозитория.
+
+5 List ->
+
+В этой первой части вы должны заново закодировать набор функций libc, как определено в их man. Ваши функции должны будут представлять те же прототипы и модели поведения, что и оригиналы. Имена ваших функций должны иметь префикс “ft_". Например, strlen становится ft_strlen.
+
+6 List ->
+
+Некоторые прототипы функций, которые вы должны повторно закодировать, используют квалификатор "ограничить". Это ключевое слово является частью стандарта c99. Поэтому запрещается включать его в свои прототипы и компилировать с флагом -std=c99.
+
+Вы должны повторно закодировать следующие функции. Эти функции не нуждаются ни в каких внешних функциях:
+•memset(+)(+) •bzero(+)(+) •memcpy(+)(+) •memccpy(+)(+) •memmove(+)(+) •memchr(+)(+) •memcmp(+)(+) •strlen(+)(+) •strlcpy(-)(+) •strlcat(+)(+) •strchr(+)(+) •strrchr(+)(+) •strnstr(+)(+) •strncmp(+)(+) •atoi(+)(+) •isalpha(+)(+) •isdigit(+)(+) •isalnum(+)(+) •isascii(+)(+) •isprint(+)(+) •toupper(+)(+) •tolower(+)(+)
+
+Вы также должны повторно закодировать следующие функции, используя функцию " malloc”:
+•calloc(+)(+) •strdup(+)(+)
+
+7 List -> 
+В этой второй части вы должны закодировать набор функций, которые либо не включены в libc, либо включены в другую форму. Некоторые из этих функций могут быть полезны для написания функций части 1.
+
+ft_substr
+ft_strjoin
+ft_strtrim
+ft_split
+ft_itoa
+ft_strmapi
+ft_putchar_fd
+ft_putstr_fd
+ft_putendl_fd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+void		*ft_memalloc(size_t size);
+void		ft_memdel(void **ap);
+void		ft_strdel(char **as);
+void		ft_strclr(char *s);
+void		ft_striter(char *s, void (*f)(char *));
+void		*ft_memalloc(size_t size);
+void		ft_memdel(void **ap);
+void		ft_strdel(char **as);
+void		ft_strclr(char *s);
+void		ft_striter(char *s, void (*f)(char *));
+void		ft_striteri(char *s, void (*f)(unsigned int, char *));
+void		ft_putchar(char c);
+void		ft_putstr(char const *s);
+void		ft_putendl(char const *s);
+void		ft_putnbr(int n);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char const *s, int fd);
+void		ft_putendl_fd(char const *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void    ft_lstiter(t_list *list, void (*f)(t_list *elem));
+void    ft_lstadd(t_list **alst, t_list *new);
+void    ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+
+char    *ft_strcpy(char *destination, const char *source);
+char    *ft_strncpy(char *destination, const char *source, size_t n);
+char    *ft_strcat(char *destination, const char *append);
+char    *ft_strncat(char *destination, const char *append, size_t n);
+
+char    *ft_strstr(const char *strB, const char *strA);
+
+char  	*ft_strnew(size_t size);
+char	  *ft_strnew(size_t size);
+char 	  *ft_strmap(char const *s, char (*f)(char));
+char	  *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char    *ft_strsub(char const *s, unsigned int start, size_t len);
+char	  *ft_strjoin(char const *s1, char const *s2);
+char    *ft_strtrim(char const *s);
+char    **ft_strsplit(char const *s, char c);
+char    *ft_itoa(int n);
+char	  *ft_strsub(char const *s, unsigned int start, size_t len);
+char	  *ft_strjoin(char const *s1, char const *s2);
+
+int     ft_strcmp(const char *str1, const char *str2);
+
+
+
+int	  	ft_strequ(char const *s1, char const *s2);
+int		  ft_strnequ(char const *s1, char const *s2, size_t n);
+
+
+t_list  *ft_lstnew(void const *content, size_t content_size);
+t_list  *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+*/
+
