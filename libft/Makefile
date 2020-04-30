@@ -19,7 +19,7 @@ SRC_BONUS = ./ft_lstadd_back.c ./ft_lstadd_front.c ./ft_lstclear.c ./ft_lstdelon
 
 all: $(NAME)
 
-bonus: $(OBJ_PART) $(OBJ_BONUS)
+bonus: fclean $(OBJ_PART) $(OBJ_BONUS)
 	ar rc $(NAME) $(OBJ_PART) $(OBJ_BONUS)
 	ranlib $(NAME)
 
