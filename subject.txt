@@ -48,6 +48,7 @@ ft_strmapi
 ft_putchar_fd
 ft_putstr_fd
 ft_putendl_fd
+ft_putnbr_fd
 
 7 Page ->
 Если вы успешно выполнили обязательную часть, вам будет приятно пройти ее дальше. 
