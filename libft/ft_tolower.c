@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 14:15:11 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 14:15:31 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/01 22:44:07 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_tolower(int ch)
 {
-	if (ch >= 65 && ch <= 90)
-		return (ch + 32);
-	else
-		return (ch);
+	if (ch >= 'A' && ch <= 'Z')
+		ch += 32;
+	return (ch);
 }

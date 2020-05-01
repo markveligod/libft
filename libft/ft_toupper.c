@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 14:14:18 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 14:14:38 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/01 22:45:35 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_toupper(int ch)
 {
-	if (ch >= 97 && ch <= 122)
-		return (ch - 32);
-	else
-		return (ch);
+	if (ch >= 'a' && ch <= 'z')
+		ch -= 32;
+	return (ch);
 }
