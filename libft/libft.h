@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 12:51:04 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 14:43:00 by ck               ###   ########.fr       */
+/*   Updated: 2020/05/01 20:52:36 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 
