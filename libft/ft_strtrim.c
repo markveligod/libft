@@ -6,15 +6,15 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:25:18 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/01 15:33:15 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/01 19:01:29 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		check_set(char ch, char *set)
+static int			check_set(char ch, char *set)
 {
-	size_t	j;
+	int	j;
 
 	j = 0;
 	while (set[j])
@@ -26,47 +26,28 @@ static int		check_set(char ch, char *set)
 	return (0);
 }
 
-static size_t	size_str(char *str, char *set)
+char				*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	size;
-	size_t	i;
+	unsigned int	len;
+	int				count;
+	char			*start;
+	char			*end;
+	char			*array;
 
-	size = 0;
-	i = 0;
-	while (str[i])
-	{
-		if (check_set(str[i], set) == 0)
-			size++;
-		i++;
-	}
-	return (++size);
-}
-
-char			*ft_strtrim(char const *s1, char const *set)
-{
-	size_t	i;
-	size_t	j;
-	char	*dst;
-	char	*src;
-	char	*array;
-
-	dst = (char *)s1;
-	src = (char *)set;
-	if (!dst || !src)
+	if (!s1 || !set)
 		return (NULL);
-	if (!(array = (char *)malloc(sizeof(char) * size_str(dst, src))))
+	count = 0;
+	while (s1[count] && check_set(s1[count], set))
+		count++;
+	start = (char *)&s1[count];
+	count = ft_strlen(s1) - 1;
+	if (count != -1)
+		while (count >= 0 && check_set(s1[count], set))
+			count--;
+	end = (char *)&s1[count];
+	len = (!*s1 || end == start) ? 2 : end - start + 2;
+	if (!(array = malloc(sizeof(char) * len)))
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (dst[i])
-	{
-		if (check_set(dst[i], src) == 0)
-		{
-			array[j] = dst[i];
-			j++;
-		}
-		i++;
-	}
-	array[j] = '\0';
+	ft_strlcpy(array, start, len);
 	return (array);
 }
