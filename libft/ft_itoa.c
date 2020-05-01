@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 10:35:06 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/30 10:35:06 by ckakuna          ###   ########.fr       */
+/*   Created: 2020/05/01 14:26:57 by ck                #+#    #+#             */
+/*   Updated: 2020/05/01 14:57:11 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,52 +20,36 @@ static int	ft_module_num(int n)
 		return (n);
 }
 
-static int	size_num(int n)
+static int	check_sign(int n)
 {
-	int count;
-
-	count = 0;
-	while (n > 10)
-	{
-		count++;
-		n /= 10;
-	}
-	return (count + 1);
-}
-
-static void	put_num_in_arr(char *array, int n, int size, int sing)
-{
-	int num;
-
-	while (sing <= size)
-	{
-		num = n % 10;
-		array[size] = ft_module_num(num) + '0';
-		n /= 10;
-		size--;
-	}
-	if (sing == 1)
-		array[0] = '-';
+	if (n < 0)
+		return (-1);
+	else
+		return (1);
 }
 
 char		*ft_itoa(int n)
 {
-	int		size;
-	int		sing;
-	char	*array;
+	int				i;
+	int				sign;
+	char			*array;
+	unsigned int	u_n;
 
- 	if (n == -2147483648)
-		return ("-2147483648");
-	size = size_num(ft_module_num(n));
-	if (n < 0)
+	if (n == 0)
+		return (ft_strdup("0"));
+	sign = check_sign(n);
+	array = (char *)malloc(sizeof(char) * 12);
+	if (!array)
+		return (NULL);
+	u_n = ft_module_num(n);
+	i = 0;
+	while (u_n != 0)
 	{
-		sing = 1;
-		size++;
+		array[i++] = (u_n % 10) + '0';
+		u_n /= 10;
 	}
-	else
-		sing = 0;
-	array = (char *)ft_calloc(sizeof(char), (size + 1));
-	if (array != NULL)
-		put_num_in_arr(array, n, (size - 1), sing);
-	return (array);
+	if (sign == -1)
+		array[i++] = '-';
+	array[i] = '\0';
+	return (ft_strrev(array));
 }

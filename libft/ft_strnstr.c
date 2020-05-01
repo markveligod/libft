@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 12:24:36 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 16:11:31 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/01 14:19:02 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,13 @@ char		*ft_strnstr(const char *string_b, const char *string_a, size_t n)
 	char	*res;
 	size_t	i;
 
-    if (!*string_a)
-        return ((char *)string_b);
+	if (!*string_a)
+		return ((char *)string_b);
 	src = (char *)string_a;
 	dst = (char *)string_b;
 	res = NULL;
 	i = -1;
 	while (dst[++i] != '\0')
-	{
 		if (dst[i] == src[0] && i <= n)
 		{
 			res = &dst[i];
@@ -54,6 +53,5 @@ char		*ft_strnstr(const char *string_b, const char *string_a, size_t n)
 			else
 				break ;
 		}
-	}
 	return (res);
 }

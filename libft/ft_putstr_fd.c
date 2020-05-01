@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 11:25:55 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/30 11:25:55 by ckakuna          ###   ########.fr       */
+/*   Created: 2020/05/01 15:05:44 by ck                #+#    #+#             */
+/*   Updated: 2020/05/01 15:06:17 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void   ft_putstr_fd(char const *s, int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	int i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 0;
-	str = (char *) s;
+	str = (char *)s;
 	while (str[i])
 	{
 		ft_putchar_fd(str[i], fd);

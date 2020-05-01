@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 10:54:12 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/30 11:00:19 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/01 15:20:45 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int i;
-	size_t len;
-	char *res;
+	unsigned int	i;
+	size_t			len;
+	char			*res;
 
 	i = 0;
 	res = NULL;

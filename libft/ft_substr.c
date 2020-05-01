@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 08:13:36 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/30 08:13:36 by ckakuna          ###   ########.fr       */
+/*   Created: 2020/05/01 15:22:31 by ckakuna           #+#    #+#             */
+/*   Updated: 2020/05/01 15:34:16 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size = ft_strlen(s);
 	if (start + len > size || !s)
 		return (NULL);
-	array = (char *)ft_calloc(sizeof(char), size + 1);
+	array = (char *)malloc(sizeof(char) * size + 1);
 	if (array != NULL)
 	{
 		if (s[start] && s[start + len])

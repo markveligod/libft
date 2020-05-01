@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 10:07:22 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/30 10:07:22 by ckakuna          ###   ########.fr       */
+/*   Created: 2020/05/01 15:08:23 by ck                #+#    #+#             */
+/*   Updated: 2020/05/01 15:13:14 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int count_word(char *str, char c)
+static int	count_word(char *str, char c)
 {
 	int i;
 	int count;
@@ -30,7 +30,7 @@ static int count_word(char *str, char c)
 	return (count);
 }
 
-static int size_word(char *str, int i, char c)
+static int	size_word(char *str, int i, char c)
 {
 	int size;
 
@@ -43,7 +43,7 @@ static int size_word(char *str, int i, char c)
 	return (size);
 }
 
-static void  put_word(char *str, char *arr, int i, int size)
+static void	put_word(char *str, char *arr, int i, int size)
 {
 	int k;
 
@@ -56,21 +56,20 @@ static void  put_word(char *str, char *arr, int i, int size)
 	}
 }
 
-char **ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
-	int i;
-	int j;
-	int size;
-	char *str;
-	char **array;
+	int		i;
+	int		j;
+	int		size;
+	char	*str;
+	char	**array;
 
-	str = (char *) s;
-	array = (char **)ft_calloc(sizeof(char *), (count_word(str, c) + 1));
-	if (array == NULL)
+	str = (char *)s;
+	if (!(array = (char **)ft_calloc(sizeof(char *), (count_word(str, c) + 1))))
 		return (NULL);
-	i = 0;
+	i = -1;
 	j = 0;
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] != c)
 		{
@@ -82,7 +81,6 @@ char **ft_split(char const *s, char c)
 			j++;
 			i += size - 1;
 		}
-		i++;
 	}
 	return (array);
 }

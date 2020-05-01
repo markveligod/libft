@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/30 08:34:43 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/30 08:34:43 by ckakuna          ###   ########.fr       */
+/*   Created: 2020/05/01 15:25:18 by ckakuna           #+#    #+#             */
+/*   Updated: 2020/05/01 15:33:15 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static size_t	size_str(char *str, char *set)
 	return (++size);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -52,21 +52,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	dst = (char *)s1;
 	src = (char *)set;
-	array = (char *)ft_calloc(sizeof(char), size_str(dst, src));
-	if (array != NULL)
+	if (!dst || !src)
+		return (NULL);
+	if (!(array = (char *)malloc(sizeof(char) * size_str(dst, src))))
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (dst[i])
 	{
-		i = 0;
-		j = 0;
-		while (dst[i])
+		if (check_set(dst[i], src) == 0)
 		{
-			if (check_set(dst[i], src) == 0)
-			{
-				array[j] = dst[i];
-				j++;
-			}
-			i++;
+			array[j] = dst[i];
+			j++;
 		}
-		array[j] = '\0';
+		i++;
 	}
+	array[j] = '\0';
 	return (array);
 }

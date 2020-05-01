@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 15:15:30 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 15:16:03 by ck               ###   ########.fr       */
+/*   Created: 2020/05/01 14:41:12 by ck                #+#    #+#             */
+/*   Updated: 2020/05/01 14:42:32 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strrev(char *str)
 {
-	size_t	size;
-	size_t	i;
-	size_t	j;
-	char	*array;
+	int		i;
+	int		len;
+	char	temp;
 
-	size = ft_strlen(s1) + ft_strlen(s2);
-	array = (char *)ft_calloc(sizeof(char), size + 1);
-	if (array != NULL)
+	i = 0;
+	len = ft_strlen(str);
+	while (len - 1 > i)
 	{
-		i = 0;
-		j = -1;
-		while (s1[++j])
-		{
-			array[i] = s1[j];
-			i++;
-		}
-		j = -1;
-		while (s2[++j])
-		{
-			array[i] = s2[j];
-			i++;
-		}
+		temp = str[i];
+		str[i] = str[len - 1];
+		str[len - 1] = temp;
+		len--;
+		i++;
 	}
-	return (array);
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 12:51:04 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 13:02:23 by ck               ###   ########.fr       */
+/*   Updated: 2020/05/01 14:43:00 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void				*ft_memchr(const void *arr, int c, size_t n);
 int					ft_memcmp(const void *array_1, const void *array_2,
 																size_t n);
 size_t				ft_strlen (const char *str);
-size_t				ft_strlcpy(char *dst, const char *src, size_t siz);
-size_t				ft_strlcat(char *destination, const char *append, size_t n);
+size_t				ft_strlcpy(char *dst, const char *src, size_t size);
+size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *str, int ch);
 char				*ft_strrchr(const char *str, int ch);
 char				*ft_strnstr(const char *string_b, const char *string_a,
@@ -73,5 +73,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 											void (*del)(void *));
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
+
+char				*ft_strrev(char *str);
 
 #endif
