@@ -56,7 +56,7 @@ static void  put_word(char *str, char *arr, int i, int size)
 	}
 }
 
-char **ft_strsplit(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
 	int i;
 	int j;

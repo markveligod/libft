@@ -35,6 +35,8 @@ char		*ft_strnstr(const char *string_b, const char *string_a, size_t n)
 	char	*res;
 	size_t	i;
 
+    if (!*string_a)
+        return ((char *)string_b);
 	src = (char *)string_a;
 	dst = (char *)string_b;
 	res = NULL;

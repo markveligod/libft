@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 12:15:39 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 12:21:33 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/01 12:48:05 by ck               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strchr(const char *str, int ch)
 	while (s[i])
 	{
 		if (s[i] == c)
-			return (&s[i]);
+			return (s + i);
 		i++;
 	}
 	return (NULL);
