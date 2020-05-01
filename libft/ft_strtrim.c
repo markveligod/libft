@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:25:18 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/01 19:01:29 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/01 21:39:17 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ char				*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	count = 0;
-	while (s1[count] && check_set(s1[count], set))
+	while (s1[count] && check_set((char)s1[count], (char *)set))
 		count++;
 	start = (char *)&s1[count];
 	count = ft_strlen(s1) - 1;
 	if (count != -1)
-		while (count >= 0 && check_set(s1[count], set))
+		while (count >= 0 && check_set((char)s1[count], (char *)set))
 			count--;
 	end = (char *)&s1[count];
 	len = (!*s1 || end == start) ? 2 : end - start + 2;
