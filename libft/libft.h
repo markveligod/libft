@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 12:51:04 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 20:52:36 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 14:24:09 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,5 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 											void (*del)(void *));
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
-
-char				*ft_strrev(char *str);
 
 #endif

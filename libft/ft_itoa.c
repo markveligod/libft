@@ -3,53 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 14:26:57 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 14:57:11 by ck               ###   ########.fr       */
+/*   Updated: 2020/05/02 13:58:36 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_module_num(int n)
+static int	check_size(int n)
 {
-	if (n < 0)
-		return (n * (-1));
-	else
-		return (n);
-}
+	int		count;
+	long	res;
 
-static int	check_sign(int n)
-{
-	if (n < 0)
-		return (-1);
-	else
-		return (1);
+	res = n;
+	count = 1;
+	if (res < 0)
+	{
+		count++;
+		res *= (-1);
+	}
+	while (res >= 10)
+	{
+		count++;
+		res /= 10;
+	}
+	return (count);
 }
 
 char		*ft_itoa(int n)
 {
-	int				i;
-	int				sign;
-	char			*array;
-	unsigned int	u_n;
+	char	*array;
+	long	res;
+	int		i;
 
-	if (n == 0)
-		return (ft_strdup("0"));
-	sign = check_sign(n);
-	array = (char *)malloc(sizeof(char) * 12);
-	if (!array)
-		return (NULL);
-	u_n = ft_module_num(n);
 	i = 0;
-	while (u_n != 0)
+	if (!(array = (char*)malloc(sizeof(char) * check_size(n) + 1)))
+		return (NULL);
+	if (n < 0)
+		array[0] = '-';
+	res = n;
+	if (res < 0)
+		res *= (-1);
+	array[check_size(n) - i++] = '\0';
+	while (res >= 10)
 	{
-		array[i++] = (u_n % 10) + '0';
-		u_n /= 10;
+		array[check_size(n) - i++] = (res % 10) + '0';
+		res /= 10;
 	}
-	if (sign == -1)
-		array[i++] = '-';
-	array[i] = '\0';
-	return (ft_strrev(array));
+	array[check_size(n) - i++] = (res % 10) + '0';
+	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 13:58:52 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/01 22:42:58 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 11:23:59 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	ft_isalnum(int ch)
 {
-	return (ft_isalpha(ch) || ft_isdigit(ch));
+	return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') ||
+			(ch >= '0' && ch <= '9'));
 }

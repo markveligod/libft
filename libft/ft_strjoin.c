@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:15:30 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 15:16:03 by ck               ###   ########.fr       */
+/*   Updated: 2020/05/02 13:11:10 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,22 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*array;
 
-	size = ft_strlen(s1) + ft_strlen(s2);
-	array = (char *)ft_calloc(sizeof(char), size + 1);
-	if (array != NULL)
+	if (s1 && s2)
 	{
-		i = 0;
-		j = -1;
-		while (s1[++j])
+		size = ft_strlen(s1) + ft_strlen(s2);
+		array = (char *)ft_calloc(sizeof(char), size + 1);
+		if ((array = (char *)ft_calloc(sizeof(char), size + 1)) != NULL)
 		{
-			array[i] = s1[j];
-			i++;
+			i = 0;
+			j = -1;
+			while (s1[++j])
+				array[i++] = s1[j];
+			j = -1;
+			while (s2[++j])
+				array[i++] = s2[j];
+			array[i] = '\0';
 		}
-		j = -1;
-		while (s2[++j])
-		{
-			array[i] = s2[j];
-			i++;
-		}
+		return (array);
 	}
-	return (array);
+	return (NULL);
 }

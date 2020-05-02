@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 13:53:18 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 13:55:45 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 09:52:44 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_isalpha(int ch)
 {
-	if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122))
-		return (1024);
-	else
-		return (0);
+	return ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z'));
 }

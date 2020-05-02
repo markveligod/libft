@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 14:06:27 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 14:06:46 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 09:53:22 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_isascii(int ch)
 {
-	if (ch >= 0 && ch <= 127)
-		return (1);
-	else
-		return (0);
+	return (ch >= 0 && ch <= 127);
 }

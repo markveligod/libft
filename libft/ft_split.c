@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:08:23 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 15:13:14 by ck               ###   ########.fr       */
+/*   Updated: 2020/05/02 13:18:07 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,26 +61,25 @@ char		**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 	int		size;
-	char	*str;
 	char	**array;
 
-	str = (char *)s;
-	if (!(array = (char **)ft_calloc(sizeof(char *), (count_word(str, c) + 1))))
+	if (!s || !c)
+		return (NULL);
+	if (!(array = (char **)ft_calloc(sizeof(char *),
+			(count_word((char *)s, c) + 1))))
 		return (NULL);
 	i = -1;
 	j = 0;
-	while (str[++i])
-	{
-		if (str[i] != c)
+	while (s[++i])
+		if (s[i] != c)
 		{
-			size = size_word(str, i, c);
+			size = size_word((char *)s, i, c);
 			array[j] = (char *)ft_calloc(sizeof(char), (size + 1));
 			if (array[j] == NULL)
 				return (NULL);
-			put_word(str, array[j], i, size);
+			put_word((char *)s, array[j], i, size);
 			j++;
 			i += size - 1;
 		}
-	}
 	return (array);
 }

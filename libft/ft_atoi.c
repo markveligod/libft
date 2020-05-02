@@ -3,38 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 13:35:09 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 13:50:00 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 12:53:00 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+static int	check(char ch)
 {
-	int i;
-	int res;
-	int sing;
+	if (ch == ' ' || ch == '\t' || ch == '\v' ||
+			ch == '\r' || ch == '\n' || ch == '\f')
+		return (1);
+	return (0);
+}
 
-	sing = 1;
+int			ft_atoi(const char *str)
+{
+	int				i;
+	int				sing;
+	int				count;
+	long long int	res;
+
 	i = 0;
 	res = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' ||
-			str[i] == '\r' || str[i] == '\n' || str[i] == '\f')
+	count = 0;
+	sing = 1;
+	while (check(str[i]) == 1)
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sing = -1;
+		sing = ((str[i] == '-') ? -1 : 1);
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
 	while ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
 	{
 		res = (res * 10) + (str[i] - '0');
 		i++;
+		count++;
+		if (count > 19)
+			return ((sing == -1) ? 0 : -1);
 	}
 	return (res * sing);
 }

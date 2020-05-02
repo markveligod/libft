@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 20:56:50 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/01 21:30:02 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 14:21:29 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list *arr_list;
 
-	arr_list = (t_list *)malloc(sizeof(t_list));
+	arr_list = (t_list *)malloc(sizeof(t_list) * 1);
 	if (!arr_list)
 		return (NULL);
 	arr_list->content = content;

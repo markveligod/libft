@@ -6,34 +6,45 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:22:31 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/01 15:34:16 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 11:15:18 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*fail_start(void)
 {
-	char	*array;
-	size_t	size;
-	size_t	i;
+	char *array;
 
-	size = ft_strlen(s);
-	if (start + len > size || !s)
+	array = (char *)malloc(sizeof(char) * 1);
+	if (!array)
 		return (NULL);
-	array = (char *)malloc(sizeof(char) * size + 1);
-	if (array != NULL)
+	array[0] = '\0';
+	return (array);
+}
+
+char		*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t			i;
+	size_t			size;
+	char			*array;
+	char			*dst;
+
+	i = 0;
+	dst = (char *)s;
+	if (!dst)
+		return (NULL);
+	size = ft_strlen(dst);
+	if (size < start)
+		fail_start();
+	array = (char *)malloc(sizeof(char) * (len + 1));
+	if (!array)
+		return (NULL);
+	while (i < len)
 	{
-		if (s[start] && s[start + len])
-		{
-			i = 0;
-			while (i < len)
-			{
-				array[i] = s[start];
-				start++;
-				i++;
-			}
-		}
+		array[i] = s[start + i];
+		i++;
 	}
+	array[i] = '\0';
 	return (array);
 }

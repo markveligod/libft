@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 13:56:31 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/04/29 13:57:33 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 09:53:46 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_isdigit(int ch)
 {
-	if (ch >= 48 && ch <= 57)
-		return (2048);
-	else
-		return (0);
+	return (ch >= 48 && ch <= 57);
 }
