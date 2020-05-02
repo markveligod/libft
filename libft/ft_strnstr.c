@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 12:24:36 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/02 10:42:37 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 19:02:42 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ char		*ft_strnstr(const char *string_b, const char *string_a, size_t n)
 {
 	size_t			i;
 	size_t			j;
-	unsigned char	*dst;
-	unsigned char	*src;
+	char	*dst;
+	char	*src;
 
 	i = 0;
-	dst = (unsigned char *)string_b;
-	src = (unsigned char *)string_a;
+	dst = (char *)string_b;
+	src = (char *)string_a;
 	if (*src == '\0' || src == NULL)
 		return (dst);
 	while (dst[i] && i < n)

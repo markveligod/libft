@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 12:51:04 by ck                #+#    #+#             */
-/*   Updated: 2020/05/02 14:24:09 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/02 18:32:42 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void				*ft_memmove(void *destination, const void *source,
 void				*ft_memchr(const void *arr, int c, size_t n);
 int					ft_memcmp(const void *array_1, const void *array_2,
 																size_t n);
-size_t				ft_strlen (const char *str);
+size_t				ft_strlen(const char *str);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *str, int ch);
@@ -58,8 +58,8 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_itoa(int n);
 void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char const *s, int fd);
-void				ft_putendl_fd(char const *s, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 void				ft_lstadd_back(t_list **lst, t_list *new);
