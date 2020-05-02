@@ -31,10 +31,6 @@ bonus: all $(OBJ_BONUS)
 	ar rc $(NAME) $(OBJ_BONUS)
 	ranlib $(NAME)
 
-so:
-	gcc -Wall -fPIC -c $(SRC_PART) $(SRC_BONUS)
-	gcc -shared -o libft.so $(OBJ_PART) $(OBJ_BONUS)
-
 $(OBJ_BONUS):
 	$(CC) -c $(SRC_BONUS) $(FLAGS)
 
