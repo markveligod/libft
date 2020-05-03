@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 20:40:03 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/01 20:40:08 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/03 08:07:40 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst && new)
+	if (!*lst)
 	{
-		new->next = *lst;
 		*lst = new;
+		return ;
 	}
+	if (!new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
