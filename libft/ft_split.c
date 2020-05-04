@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:08:23 by ck                #+#    #+#             */
-/*   Updated: 2020/05/04 08:22:43 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/04 12:12:52 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ char		**ft_split(char const *s, char c)
 			size = size_word((char *)s, i, c);
 			if (!(array[j] = (char *)malloc(sizeof(char) * (size + 1))))
 			{
+				while (j >= 0)
+				{
+					free(array[j]);
+					j--;
+				}
 				free(array);
 				return (NULL);
 			}

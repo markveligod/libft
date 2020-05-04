@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 20:41:18 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/01 21:31:44 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/04 12:40:59 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list	*temp;
 	t_list	*prev;
 
-	if (*lst && lst && del)
+	if (lst && *lst && del)
 	{
 		prev = (t_list *)*lst;
 		while (prev)
