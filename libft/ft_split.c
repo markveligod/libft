@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:08:23 by ck                #+#    #+#             */
-/*   Updated: 2020/05/02 13:18:07 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/04 08:22:43 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char		**ft_split(char const *s, char c)
 
 	if (!s || !c)
 		return (NULL);
-	if (!(array = (char **)ft_calloc(sizeof(char *),
+	if (!(array = (char **)malloc(sizeof(char *) *
 			(count_word((char *)s, c) + 1))))
 		return (NULL);
 	i = -1;
@@ -74,9 +74,11 @@ char		**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			size = size_word((char *)s, i, c);
-			array[j] = (char *)ft_calloc(sizeof(char), (size + 1));
-			if (array[j] == NULL)
+			if (!(array[j] = (char *)malloc(sizeof(char) * (size + 1))))
+			{
+				free(array);
 				return (NULL);
+			}
 			put_word((char *)s, array[j], i, size);
 			j++;
 			i += size - 1;
