@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: ckakuna <ck@ck.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:08:23 by ck                #+#    #+#             */
-/*   Updated: 2020/05/04 12:12:52 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/05 12:08:51 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,18 @@ static void	put_word(char *str, char *arr, int i, int size)
 		i++;
 		k++;
 	}
+	arr[k] = '\0';
+}
+
+static char	**free_array(char **array, int j)
+{
+	while (j > 0)
+	{
+		j--;
+		free((void *)array[j]);
+	}
+	free(array);
+	return (NULL);
 }
 
 char		**ft_split(char const *s, char c)
@@ -75,18 +87,11 @@ char		**ft_split(char const *s, char c)
 		{
 			size = size_word((char *)s, i, c);
 			if (!(array[j] = (char *)malloc(sizeof(char) * (size + 1))))
-			{
-				while (j >= 0)
-				{
-					free(array[j]);
-					j--;
-				}
-				free(array);
-				return (NULL);
-			}
+				return (free_array(array, j));
 			put_word((char *)s, array[j], i, size);
 			j++;
 			i += size - 1;
 		}
+	array[j] = NULL;
 	return (array);
 }
