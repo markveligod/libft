@@ -6,7 +6,7 @@
 /*   By: ckakuna <ckakuna@sc21.ru>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:22:31 by ckakuna           #+#    #+#             */
-/*   Updated: 2020/05/02 11:15:18 by ckakuna          ###   ########.fr       */
+/*   Updated: 2020/05/07 01:01:54 by student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	size = ft_strlen(dst);
 	if (size < start)
-		return(fail_start());
+		return (fail_start());
 	array = (char *)malloc(sizeof(char) * (len + 1));
 	if (!array)
 		return (NULL);
