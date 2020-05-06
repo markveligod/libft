@@ -36,7 +36,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	size = ft_strlen(dst);
 	if (size < start)
-		fail_start();
+		return(fail_start());
 	array = (char *)malloc(sizeof(char) * (len + 1));
 	if (!array)
 		return (NULL);
