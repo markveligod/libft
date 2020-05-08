@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ck <ck@ck.fr>                              +#+  +:+       +#+        */
+/*   By: ckakuna <ckakuna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 15:03:17 by ck                #+#    #+#             */
-/*   Updated: 2020/05/01 15:04:22 by ck               ###   ########.fr       */
+/*   Updated: 2020/05/08 10:03:44 by ckakuna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_module_fd(int n)
+static unsigned int	ft_module_fd(int n)
 {
 	if (n < 0)
 		return (n * (-1));
@@ -20,7 +20,7 @@ static int	ft_module_fd(int n)
 		return (n);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void				ft_putnbr_fd(int n, int fd)
 {
 	unsigned int num;
 

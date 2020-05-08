@@ -10,39 +10,38 @@
 #                                                                              #
 # **************************************************************************** #
 
+SRC_PART = ./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c ./ft_isalpha.c ./ft_isascii.c ./ft_isdigit.c ./ft_isprint.c ./ft_itoa.c ./ft_memccpy.c ./ft_memchr.c ./ft_memcmp.c ./ft_memcpy.c ./ft_memmove.c ./ft_memset.c ./ft_putchar_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c ./ft_putstr_fd.c ./ft_strchr.c ./ft_strdup.c ./ft_strjoin.c ./ft_strlcat.c ./ft_strlcpy.c ./ft_strlen.c ./ft_strmapi.c ./ft_strncmp.c ./ft_strnstr.c ./ft_strrchr.c ./ft_split.c ./ft_strtrim.c ./ft_substr.c ./ft_tolower.c ./ft_toupper.c
+SRC_BONUS = ./ft_lstadd_back.c ./ft_lstadd_front.c ./ft_lstclear.c ./ft_lstdelone.c ./ft_lstiter.c ./ft_lstlast.c ./ft_lstmap.c ./ft_lstnew.c ./ft_lstsize.c
 NAME = libft.a
 FLAGS = -Wall -Werror -Wextra
 CC = gcc -c
-RM = rm -f
-AR = ar rc
-RAN = ranlib
 HDRS = libft.h
-OBJ_PART = ./ft_atoi.o ./ft_bzero.o ./ft_calloc.o ./ft_isalnum.o ./ft_isalpha.o ./ft_isascii.o ./ft_isdigit.o ./ft_isprint.o ./ft_itoa.o ./ft_memccpy.o ./ft_memchr.o ./ft_memcmp.o ./ft_memcpy.o ./ft_memmove.o ./ft_memset.o ./ft_putchar_fd.o ./ft_putendl_fd.o ./ft_putnbr_fd.o ./ft_putstr_fd.o ./ft_strchr.o ./ft_strdup.o ./ft_strjoin.o ./ft_strlcat.o ./ft_strlcpy.o ./ft_strlen.o ./ft_strmapi.o ./ft_strncmp.o ./ft_strnstr.o ./ft_strrchr.o ./ft_split.o ./ft_strtrim.o ./ft_substr.o ./ft_tolower.o ./ft_toupper.o
-SRC_PART = ./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c ./ft_isalpha.c ./ft_isascii.c ./ft_isdigit.c ./ft_isprint.c ./ft_itoa.c ./ft_memccpy.c ./ft_memchr.c ./ft_memcmp.c ./ft_memcpy.c ./ft_memmove.c ./ft_memset.c ./ft_putchar_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c ./ft_putstr_fd.c ./ft_strchr.c ./ft_strdup.c ./ft_strjoin.c ./ft_strlcat.c ./ft_strlcpy.c ./ft_strlen.c ./ft_strmapi.c ./ft_strncmp.c ./ft_strnstr.c ./ft_strrchr.c ./ft_split.c ./ft_strtrim.c ./ft_substr.c ./ft_tolower.c ./ft_toupper.c
-OBJ_BONUS = ./ft_lstadd_back.o ./ft_lstadd_front.o ./ft_lstclear.o ./ft_lstdelone.o ./ft_lstiter.o ./ft_lstlast.o ./ft_lstmap.o ./ft_lstnew.o ./ft_lstsize.o
-SRC_BONUS = ./ft_lstadd_back.c ./ft_lstadd_front.c ./ft_lstclear.c ./ft_lstdelone.c ./ft_lstiter.c ./ft_lstlast.c ./ft_lstmap.c ./ft_lstnew.c ./ft_lstsize.c
+OBJ_PART = $(SRC_PART:.c=.o)
+OBJ_BONUS = $(OBJ_PART) $(SRC_BONUS:.c=.o)
+
+%.o:%.c
+	@gcc -Wall -Wextra -Werror -o $@ -c $<
+	@echo "\033[90m[\033[32mOK\033[90m]\033[34m Compiling $<\033[0m"
+
+$(NAME): $(OBJ_PART) $(HDRS)
+	@$(CC) $(SRC_PART) $(FLAGS)
+	@ar r $(NAME) $(OBJ_PART)
+	@echo "\033[90m[\033[32mSuccess\033[90m]\033[32m Successfully compiled Libft.\033[0m"
+
+bonus: $(OBJ_BONUS) $(HDRS)
+	@$(CC) $(SRC_PART) $(SRC_BONUS) $(FLAGS)
+	@ar r $(NAME) $(OBJ_BONUS)
+	@echo "\033[90m[\033[32mSuccess\033[90m]\033[32m Successfully compiled Libft with Bonus.\033[0m"
 
 all: $(NAME)
 
-$(NAME): $(OBJ_PART)
-	$(AR) $(NAME) $(OBJ_PART)
-	$(RAN) $(NAME)
-
-$(OBJ_PART): $(HDRS)
-	$(CC) $(SRC_PART) $(FLAGS)
-
-bonus: all $(OBJ_BONUS)
-	$(AR) $(NAME) $(OBJ_BONUS)
-	$(RAN) $(NAME)
-
-$(OBJ_BONUS): $(HDRS)
-	$(CC) $(SRC_BONUS) $(FLAGS)
-
 clean:
-	$(RM) $(OBJ_PART) $(OBJ_BONUS)
+	@/bin/rm -f $(OBJ_BONUS)
+	@echo "\033[90m[\033[91mDeleting\033[90m]\033[31m Object files deleted\033[0m"
 
 fclean: clean
-	$(RM) $(NAME)
+	@/bin/rm -f $(NAME)
+	@echo "\033[90m[\033[91mDeleting\033[90m]\033[31m Libft.a deleted.\033[0m"
 
 re: fclean all
 
