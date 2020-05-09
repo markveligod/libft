@@ -12,74 +12,74 @@
 
 #include "libft.h"
 
-static int		ft_count_words(char const *s, char c)
+static int		count_words(char *str, char c)
 {
 	int i;
-	int words;
-	int hasword;
+	int count;
+	int word;
 
 	i = 0;
-	words = 0;
-	hasword = 0;
-	while (s[i] == c && s[i])
+	count = 0;
+	word = 0;
+	while (str[i] == c && str[i])
 		i++;
-	while (s[i])
+	while (str[i])
 	{
-		if (s[i] != c && s[i])
-			hasword = 1;
-		if (s[i] == c)
+		if (str[i] != c && str[i])
+			word = 1;
+		if (str[i] == c)
 		{
-			while (s[i] == c && s[i])
+			while (str[i] == c && str[i])
 				i++;
-			if (s[i])
-				words++;
+			if (str[i])
+				count++;
 		}
 		else
 			i++;
 	}
-	return (words + hasword);
+	return (count + word);
 }
 
-static	char	*ft_alloc_word(char const *s, char c)
+static	char	*put_word(char *str, char c)
 {
-	int		size;
-	char	*tab;
+	int		i;
+	char	*arr;
 
-	size = 0;
-	tab = 0;
-	while (s[size] && s[size] != c)
-		size++;
-	if (!(tab = (char *)malloc(sizeof(char) * (size + 1))))
+	i = 0;
+	arr = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	if (!(arr = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	ft_strlcpy(tab, s, size + 1);
-	return (tab);
+	ft_strlcpy(arr, str, i + 1);
+	return (arr);
 }
 
 char			**ft_split(char const *s, char c)
 {
-	int		count;
+	int		i;
 	int		words;
-	char	**tab;
+	char	**array;
 
-	count = -1;
+	i = -1;
 	if (!s)
 		return (NULL);
-	words = ft_count_words(s, c);
-	if (!(tab = malloc(sizeof(char *) * (words + 1))))
+	words = count_words((char *)s, c);
+	if (!(array = malloc(sizeof(char *) * (words + 1))))
 		return (NULL);
-	while (++count < words)
+	while (++i < words)
 	{
 		while (s[0] == c)
 			s++;
-		if (!(tab[count] = ft_alloc_word(s, c)))
+		if (!(array[i] = put_word((char *)s, c)))
 		{
-			while (count > 0)
-				free(tab[count--]);
-			free(tab);
+			while (i > 0)
+				free(array[i--]);
+			free(array);
 			return (NULL);
 		}
-		s += ft_strlen(tab[count]);
+		s += ft_strlen(array[i]);
 	}
-	tab[count] = 0;
-	return (tab);
+	array[i] = 0;
+	return (array);
 }
