@@ -48,4 +48,4 @@ make clean - clearing *.o files
 make fclean - clearing *. o files and libraries  
 ```
   
-Author: *[Mark Veligod](https://github.com/markveligod)*
+**Author:** *[Mark Veligod](https://github.com/markveligod)*
